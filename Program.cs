@@ -24,7 +24,14 @@
                 Console.WriteLine("2. Find set by year");
                 Console.WriteLine("3. Exit");
 
-                string choice = Console.ReadLine() ?? "";
+                // Simple guard check
+                string? choice = Console.ReadLine();
+                if (string.IsNullOrWhiteSpace(choice))
+                {
+                    Console.WriteLine("Invalid input. Please enter a valid choice.");
+                    continue; // Skip to the next iteration of the loop
+                }
+
                 switch (choice)
                 {
                     case "1":
